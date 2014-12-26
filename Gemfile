@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'devise'
+
 group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
