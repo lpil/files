@@ -8,17 +8,7 @@
 </head>
 <body>
 
-<% if logged_in? %>
-  Logged in as <%= current_user.email %>
-<% else %>
-  Not logged in 
-<% end %>
-
 <%= yield %>
 
-<% if Rails.env.development? %>
-  <%= debug params %>
-  <%= debug flash %>
-<% end %>
 </body>
 </html>
