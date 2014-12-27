@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
     @project.owner = current_user
     @project.users << current_user
     if @project.save
+      flash.notice = "Created project #{@project.name}"
       redirect_to project_path(@project)
     else
       flash.alert = 'Could not create project'
@@ -23,7 +24,7 @@ class ProjectsController < ApplicationController
   def update
     if @project.update_attributes project_params
       redirect_to project_path(@project),
-                  notice: "Project '#{@project.name}' successfully updated"
+                  notice: "Project #{@project.name} successfully updated"
     else
       render action: :edit
     end
