@@ -29,4 +29,12 @@ feature 'UserAuthentications', :type => :feature do
     expect(page).to have_content 'Signed out successfully.'
     expect(page).to have_content 'Login'
   end
+
+  scenario 'Guest attempts to access restricted pages' do
+    [users_path, projects_path].each do |path|
+      visit path
+      expect(page).to have_content 'You need to sign in or sign up'
+      expect(current_path).to eq new_user_session_path
+    end
+  end
 end
