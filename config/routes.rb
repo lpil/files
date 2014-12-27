@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'homes#show', via: :get
+  root to: 'projects#index', via: :get
 
   authenticate :user do
     resources :users, only: %i(index show)
