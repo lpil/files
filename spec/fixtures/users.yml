@@ -1,0 +1,3 @@
+louis:
+  email: louis@pilfold.co.uk
+  encrypted_password: <%= Devise.bcrypt User, 'password' %>
