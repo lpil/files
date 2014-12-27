@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
          :recoverable,
          :rememberable,
          :validatable
+
+  has_many :project_memberships
+  has_many :projects,
+           through: :project_memberships
 end
