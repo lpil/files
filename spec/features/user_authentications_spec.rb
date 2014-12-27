@@ -31,7 +31,7 @@ feature 'UserAuthentications', :type => :feature do
   end
 
   scenario 'Guest attempts to access restricted pages' do
-    [users_path, projects_path].each do |path|
+    [users_path, user_path(users :louis), projects_path].each do |path|
       visit path
       expect(page).to have_content 'You need to sign in or sign up'
       expect(current_path).to eq new_user_session_path
